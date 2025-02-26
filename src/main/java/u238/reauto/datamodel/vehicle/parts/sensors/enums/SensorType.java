@@ -1,0 +1,27 @@
+package u238.reauto.datamodel.vehicle.parts.sensors.enums;
+
+public enum SensorType {
+
+    OXYGEN,
+    MANIFOLD_ABSOLUTE_PRESSURE,
+    COOLANT,
+    PARKING,
+    MASS_AIR_FLOW,
+    AIR_INTAKE_TEMPERATURE,
+    ACCELEROMETER,
+    GYROSCOPE,
+    ENGINE_SPEED,
+    FUEL_TEMPERATURE,
+    THROTTLE_POSITION,
+    VOLTAGE,
+    RAIN,
+    OIL_PRESSURE,
+    NO_x,
+    KNOCK,
+    CAMSHAFT_POSITION,
+    CRANK_SHAFT_POSITION,
+    TYRE_PRESSURE,
+    STEERING_ANGLE,
+    WHEEL_SPEED
+
+}
