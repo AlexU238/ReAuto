@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import u238.reauto.datamodel.user.User;
-import u238.reauto.datamodel.vehicle.enums.VehicleType;
+import u238.reauto.datamodel.vehicle.enums.VehicleBodyType;
 import u238.reauto.datamodel.vehicle.parts.acustics.Acoustics;
 import u238.reauto.datamodel.vehicle.parts.addOns.AddOn;
 import u238.reauto.datamodel.vehicle.parts.climateControl.ClimateControl;
@@ -23,7 +23,7 @@ import java.util.Collection;
 @Getter
 @Setter
 @ToString
-public abstract class Vehicle {
+public abstract class Vehicle<E extends Engine> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -34,7 +34,7 @@ public abstract class Vehicle {
     protected String manufacturer;
 
     @NotNull
-    protected VehicleType type;
+    protected VehicleBodyType bodyType;
 
     @NotNull
     protected Integer year;
@@ -48,7 +48,7 @@ public abstract class Vehicle {
             joinColumns = {@JoinColumn(name = "engine_id")},
             inverseJoinColumns = {@JoinColumn(name = "vehicle_id")}
     )
-    protected Collection<Engine> engines;
+    protected Collection<E> engines;
 
     @ManyToOne
     @JoinColumn(name = "climateControl_id")

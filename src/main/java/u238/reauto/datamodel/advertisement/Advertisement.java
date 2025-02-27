@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import u238.reauto.datamodel.user.User;
 import u238.reauto.datamodel.vehicle.Vehicle;
+import u238.reauto.datamodel.vehicle.parts.engine.Engine;
 
 @Entity
 @NoArgsConstructor
@@ -12,6 +13,7 @@ import u238.reauto.datamodel.vehicle.Vehicle;
 @Getter
 @Setter
 @ToString
+@Builder
 public class Advertisement {
 
     @Id
@@ -22,7 +24,7 @@ public class Advertisement {
     private String description;
 
     @OneToOne(fetch = FetchType.LAZY)
-    private Vehicle vehicle;
+    private Vehicle<Engine> vehicle;
 
     @NotNull
     private Double price;

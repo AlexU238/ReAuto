@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import u238.reauto.datamodel.vehicle.FuelVehicle;
 import u238.reauto.datamodel.vehicle.HybridVehicle;
-import u238.reauto.datamodel.vehicle.Vehicle;
 
 import java.util.Collection;
 
@@ -16,6 +15,7 @@ import java.util.Collection;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Fuel {
 
     @Id

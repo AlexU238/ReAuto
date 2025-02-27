@@ -16,6 +16,7 @@ import java.util.Collection;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public abstract class Engine {
 
     @Id

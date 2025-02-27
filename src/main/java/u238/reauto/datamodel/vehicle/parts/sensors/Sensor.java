@@ -15,6 +15,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class Sensor {
 
     @Id

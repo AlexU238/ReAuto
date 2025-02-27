@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import u238.reauto.datamodel.vehicle.parts.engine.Engine;
 import u238.reauto.datamodel.vehicle.parts.fuel.Fuel;
 
 @Entity
@@ -12,7 +13,8 @@ import u238.reauto.datamodel.vehicle.parts.fuel.Fuel;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class HybridVehicle extends Vehicle {
+@Builder
+public class HybridVehicle extends Vehicle<Engine> {
 
     @NonNull
     Integer drivingRange;

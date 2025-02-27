@@ -14,6 +14,7 @@ import java.util.Collection;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class AddOn {
 
     @Id

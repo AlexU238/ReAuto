@@ -14,6 +14,7 @@ import java.util.Collection;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Acoustics {
 
     @Id

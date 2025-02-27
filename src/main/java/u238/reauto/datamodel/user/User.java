@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import u238.reauto.datamodel.vehicle.Vehicle;
+import u238.reauto.datamodel.advertisement.Advertisement;
 
 import java.util.Collection;
 
@@ -16,6 +16,7 @@ import java.util.Collection;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class User {
 
     @Id
@@ -41,6 +42,6 @@ public class User {
     @NotBlank(message = "Last name is empty")
     private String lastName;
 
-    @OneToMany(mappedBy = "user")
-    private Collection<Vehicle> advertisements;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Collection<Advertisement> advertisements;
 }

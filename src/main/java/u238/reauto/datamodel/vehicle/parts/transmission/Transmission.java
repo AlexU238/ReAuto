@@ -17,6 +17,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class Transmission {
 
     @Id

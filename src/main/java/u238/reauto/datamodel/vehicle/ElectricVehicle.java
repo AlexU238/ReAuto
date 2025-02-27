@@ -3,6 +3,7 @@ package u238.reauto.datamodel.vehicle;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import u238.reauto.datamodel.vehicle.parts.engine.ElectricEngine;
 
 @Entity
 @Getter
@@ -10,7 +11,8 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ElectricVehicle extends Vehicle {
+@Builder
+public class ElectricVehicle extends Vehicle<ElectricEngine> {
 
     @NotNull
     Integer drivingRange;
