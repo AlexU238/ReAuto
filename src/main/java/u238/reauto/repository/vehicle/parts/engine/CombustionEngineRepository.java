@@ -11,6 +11,6 @@ public interface CombustionEngineRepository extends DefaultEngineRepository<Comb
 
     List<CombustionEngine> findAllByCylinders(int cylinderNumber);
 
-    List<CombustionEngine> findAllBySizeLiters(int sizeLiters);
+    List<CombustionEngine> findAllBySizeLiters(double sizeLiters);
 
 }

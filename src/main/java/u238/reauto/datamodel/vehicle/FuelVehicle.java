@@ -3,6 +3,7 @@ package u238.reauto.datamodel.vehicle;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import u238.reauto.datamodel.vehicle.parts.engine.CombustionEngine;
 import u238.reauto.datamodel.vehicle.parts.fuel.Fuel;
 
@@ -12,7 +13,7 @@ import u238.reauto.datamodel.vehicle.parts.fuel.Fuel;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 public class FuelVehicle extends Vehicle<CombustionEngine> {
 
     @ManyToOne

@@ -3,9 +3,8 @@ package u238.reauto.datamodel.vehicle;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import u238.reauto.datamodel.user.User;
 import u238.reauto.datamodel.vehicle.enums.VehicleBodyType;
 import u238.reauto.datamodel.vehicle.parts.acustics.Acoustics;
@@ -23,6 +22,9 @@ import java.util.Collection;
 @Getter
 @Setter
 @ToString
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class Vehicle<E extends Engine> {
 
     @Id

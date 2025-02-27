@@ -3,6 +3,7 @@ package u238.reauto.datamodel.vehicle.parts.engine;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import u238.reauto.datamodel.vehicle.parts.engine.enums.Induction;
 
 @Entity
@@ -11,12 +12,13 @@ import u238.reauto.datamodel.vehicle.parts.engine.enums.Induction;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 public class CombustionEngine extends Engine {
 
     private Integer sizeCC; //int cubic centimeters
 
-    private Integer sizeLiters;
+    @NotNull
+    private Double sizeLiters;
 
     private String engineConfiguration; //Layout of the cylinders within an engine, typically configured in a straight line (in-line) or a V.
 

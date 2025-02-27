@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import u238.reauto.datamodel.vehicle.Vehicle;
 import u238.reauto.datamodel.vehicle.parts.engine.enums.EngineType;
 
@@ -17,6 +18,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@SuperBuilder
 public abstract class Engine {
 
     @Id
@@ -24,6 +26,7 @@ public abstract class Engine {
     @Column(name = "engine_id")
     protected Long id;
 
+    @NotNull
     protected EngineType type;
 
     @NotBlank
@@ -43,7 +46,7 @@ public abstract class Engine {
     protected Double powerToWeightRatio;
 
     @NotNull
-    protected Double power;
+    protected Double powerKW;
 
     protected Double torque;
 
@@ -52,6 +55,6 @@ public abstract class Engine {
     @ToString.Exclude
     @JsonIgnore
     @ManyToMany(mappedBy = "engines")
-    protected Collection<Vehicle> vehicle;
+    protected Collection<Vehicle<Engine>> vehicle;
 
 }
