@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import u238.reauto.datamodel.vehicle.Vehicle;
+import u238.reauto.datamodel.vehicle.parts.engine.Engine;
 import u238.reauto.datamodel.vehicle.parts.transmission.enums.Drive;
 import u238.reauto.datamodel.vehicle.parts.transmission.enums.TransmissionLocation;
 import u238.reauto.datamodel.vehicle.parts.transmission.enums.TransmissionType;
@@ -39,5 +40,5 @@ public class Transmission {
     @ToString.Exclude
     @JsonIgnore
     @OneToMany(cascade = CascadeType.DETACH, mappedBy = "transmission")
-    private Collection<Vehicle> vehicle;
+    private Collection<Vehicle<Engine>> vehicle;
 }

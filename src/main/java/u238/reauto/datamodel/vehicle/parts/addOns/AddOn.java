@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import u238.reauto.datamodel.vehicle.Vehicle;
+import u238.reauto.datamodel.vehicle.parts.engine.Engine;
 
 import java.util.Collection;
 
@@ -28,5 +29,5 @@ public class AddOn {
     @ToString.Exclude
     @JsonIgnore
     @ManyToMany(mappedBy = "addOns")
-    private Collection<Vehicle> vehicles;
+    private Collection<Vehicle<Engine>> vehicles;
 }

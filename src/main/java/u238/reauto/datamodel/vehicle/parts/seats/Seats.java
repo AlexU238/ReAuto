@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import u238.reauto.datamodel.vehicle.Vehicle;
+import u238.reauto.datamodel.vehicle.parts.engine.Engine;
 
 import java.util.Collection;
 
@@ -32,5 +33,5 @@ public class Seats {
     @ToString.Exclude
     @JsonIgnore
     @OneToMany(mappedBy = "seats")
-    private Collection<Vehicle> vehicles;
+    private Collection<Vehicle<Engine>> vehicles;
 }

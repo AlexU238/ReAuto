@@ -10,7 +10,4 @@ import java.util.List;
 @Repository
 public interface SeatsRepository extends DefaultRepository<Long, Seats>, JpaRepository<Seats, Long> {
 
-
-    List<Seats> findAllByNumberEquals(int number);
-
 }

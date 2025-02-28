@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import u238.reauto.datamodel.vehicle.Vehicle;
+import u238.reauto.datamodel.vehicle.parts.engine.Engine;
 import u238.reauto.datamodel.vehicle.parts.sensors.enums.SensorType;
 
 import java.util.Collection;
@@ -29,5 +30,5 @@ public class Sensor {
     @ToString.Exclude
     @JsonIgnore
     @ManyToMany(mappedBy = "sensors")
-    private Collection<Vehicle> vehicle;
+    private Collection<Vehicle<Engine>> vehicle;
 }
