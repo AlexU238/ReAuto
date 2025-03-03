@@ -39,7 +39,7 @@ public abstract class Vehicle<E extends Engine> {
     protected VehicleBodyType bodyType;
 
     @NotNull
-    protected Integer year;
+    protected Integer yearOfProduction;
 
     @NotBlank
     protected String model;
@@ -56,8 +56,8 @@ public abstract class Vehicle<E extends Engine> {
     @JoinColumn(name = "climateControl_id")
     protected ClimateControl climateControl;
 
-    @ManyToOne
-    @JoinColumn(name="transmission_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="transmission_id")
     @NotNull
     protected Transmission transmission;
 

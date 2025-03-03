@@ -39,6 +39,6 @@ public class Transmission {
 
     @ToString.Exclude
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.DETACH, mappedBy = "transmission")
+    @OneToMany(mappedBy = "transmission")
     private Collection<Vehicle<Engine>> vehicle;
 }

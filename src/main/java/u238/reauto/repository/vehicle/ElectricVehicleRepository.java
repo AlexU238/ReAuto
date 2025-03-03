@@ -11,6 +11,6 @@ public interface ElectricVehicleRepository extends DefaultVehicleRepository<Elec
 
     //todo add more methods for more precise search
 
-    List<ElectricVehicle> findByDrivingRange(int drivingRange);
+    List<ElectricVehicle> findAllByDrivingRange(int drivingRange);
 
 }
