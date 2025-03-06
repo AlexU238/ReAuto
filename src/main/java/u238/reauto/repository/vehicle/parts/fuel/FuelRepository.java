@@ -12,5 +12,5 @@ public interface FuelRepository extends DefaultRepository<Long, Fuel>, JpaReposi
 
     List<Fuel> findAllByCapacity(double capacity);
 
-    List<Fuel> findAllByType(String type);
+    List<Fuel> findAllByTypeOfFuel(String type);
 }

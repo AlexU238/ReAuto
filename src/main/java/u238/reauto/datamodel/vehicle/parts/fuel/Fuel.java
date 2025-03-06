@@ -27,7 +27,7 @@ public class Fuel {
     private Double capacity;
 
     @NotNull
-    private String type;
+    private String typeOfFuel;
 
     private double fuelConsumptionCombined;
 
