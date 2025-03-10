@@ -7,12 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import u238.reauto.datamodel.vehicle.FuelVehicle;
 import u238.reauto.datamodel.vehicle.enums.VehicleBodyType;
+import u238.reauto.datamodel.vehicle.parts.engine.CombustionEngine;
+import u238.reauto.datamodel.vehicle.parts.engine.enums.EngineType;
+import u238.reauto.datamodel.vehicle.parts.engine.enums.Induction;
 import u238.reauto.datamodel.vehicle.parts.fuel.Fuel;
 import u238.reauto.datamodel.vehicle.parts.transmission.Transmission;
 import u238.reauto.datamodel.vehicle.parts.transmission.enums.Drive;
 import u238.reauto.datamodel.vehicle.parts.transmission.enums.TransmissionLocation;
 import u238.reauto.datamodel.vehicle.parts.transmission.enums.TransmissionType;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @DataJpaTest
@@ -37,6 +43,15 @@ public class FuelVehicleRepositoryTest {
                 .fuel(fuel)
                 .airbags(2)
                 .transmission(transmission)
+                .engines(Collections.singletonList(CombustionEngine.builder()
+                        .type(EngineType.PISTON)
+                        .location("Front")
+                        .manufacturer("Test")
+                        .powerKW(180.0)
+                        .sizeLiters(3.6)
+                        .induction(Induction.ASPIRATED)
+                        .cylinders(6)
+                        .build()))
                 .build();
         FuelVehicle fuelVehicle1 = FuelVehicle.builder()
                 .manufacturer("test")
@@ -46,6 +61,15 @@ public class FuelVehicleRepositoryTest {
                 .fuel(fuel)
                 .airbags(2)
                 .transmission(transmission)
+                .engines(Collections.singletonList(CombustionEngine.builder()
+                        .type(EngineType.PISTON)
+                        .location("Front")
+                        .manufacturer("Test")
+                        .powerKW(180.0)
+                        .sizeLiters(3.6)
+                        .induction(Induction.ASPIRATED)
+                        .cylinders(6)
+                        .build()))
                 .build();
 
         fuelVehicleRepository.save(fuelVehicle);

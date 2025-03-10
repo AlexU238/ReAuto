@@ -2,6 +2,7 @@ package u238.reauto.datamodel.vehicle;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -44,13 +45,14 @@ public abstract class Vehicle<E extends Engine> {
     @NotBlank
     protected String model;
 
-    @ManyToMany
+    @NotEmpty
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "vehicle_engine",
             joinColumns = {@JoinColumn(name = "engine_id")},
             inverseJoinColumns = {@JoinColumn(name = "vehicle_id")}
     )
-    protected Collection<E> engines;
+    protected Collection<Engine> engines;
 
     @ManyToOne
     @JoinColumn(name = "climateControl_id")

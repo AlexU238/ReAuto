@@ -7,11 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import u238.reauto.datamodel.vehicle.ElectricVehicle;
 import u238.reauto.datamodel.vehicle.enums.VehicleBodyType;
+import u238.reauto.datamodel.vehicle.parts.engine.CombustionEngine;
+import u238.reauto.datamodel.vehicle.parts.engine.ElectricEngine;
+import u238.reauto.datamodel.vehicle.parts.engine.enums.EngineType;
 import u238.reauto.datamodel.vehicle.parts.transmission.Transmission;
 import u238.reauto.datamodel.vehicle.parts.transmission.enums.Drive;
 import u238.reauto.datamodel.vehicle.parts.transmission.enums.TransmissionLocation;
 import u238.reauto.datamodel.vehicle.parts.transmission.enums.TransmissionType;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @DataJpaTest
@@ -32,6 +37,18 @@ public class ElectricVehicleRepositoryTest {
                 .drivingRange(2000)
                 .airbags(2)
                 .transmission(transmission)
+                .engines(new ArrayList<>(Collections.singletonList(ElectricEngine.builder()
+                        .type(EngineType.ELECTRIC)
+                        .location("Back")
+                        .manufacturer("Test2")
+                        .powerKW(180.0)
+                        .motorBatteryType("Magnet")
+                        .wallBoxChargingVoltage(50)
+                        .wallOutletChargingTime(12)
+                        .chargeTimeDC(14)
+                        .ampHours(13000)
+                        .capacity(500)
+                        .build())))
                 .build();
 
         ElectricVehicle electricVehicle1 = ElectricVehicle.builder()
@@ -42,6 +59,18 @@ public class ElectricVehicleRepositoryTest {
                 .drivingRange(4000)
                 .airbags(2)
                 .transmission(transmission)
+                .engines(new ArrayList<>(Collections.singletonList(ElectricEngine.builder()
+                        .type(EngineType.ELECTRIC)
+                        .location("Back")
+                        .manufacturer("Test2")
+                        .powerKW(180.0)
+                        .motorBatteryType("Magnet")
+                        .wallBoxChargingVoltage(50)
+                        .wallOutletChargingTime(12)
+                        .chargeTimeDC(14)
+                        .ampHours(13000)
+                        .capacity(500)
+                        .build())))
                 .build();
 
         electricVehicleRepository.save(electricVehicle);
