@@ -1,9 +1,11 @@
 package u238.reauto.repository.vehicle;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import u238.reauto.datamodel.vehicle.ElectricVehicle;
 import u238.reauto.datamodel.vehicle.FuelVehicle;
 import u238.reauto.datamodel.vehicle.HybridVehicle;
 import u238.reauto.datamodel.vehicle.enums.VehicleBodyType;
@@ -19,6 +21,7 @@ import u238.reauto.datamodel.vehicle.parts.transmission.enums.TransmissionType;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 @DataJpaTest
 public class HybridVehicleRepositoryTest {
@@ -103,27 +106,99 @@ public class HybridVehicleRepositoryTest {
     }
 
     @Test
-    public void testFindALlByManufacturerSuccess(){}
+    public void testFindALlByManufacturerSuccess(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByManufacturer("test");
+
+        Assertions.assertEquals(2, vehicles.size());
+        Assertions.assertEquals("test", vehicles.get(0).getManufacturer());
+        Assertions.assertEquals("test", vehicles.get(1).getManufacturer());
+    }
 
     @Test
-    public void testFindALlByManufacturerFail(){}
+    public void testFindALlByManufacturerFail(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByManufacturer("test2");
+
+        Assertions.assertEquals(0, vehicles.size());
+    }
 
     @Test
-    public void testFindAllByModelSuccess(){}
+    public void testFindAllByModelSuccess(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByModel("T80");
+
+        Assertions.assertEquals(1, vehicles.size());
+        Assertions.assertEquals("test", vehicles.get(0).getManufacturer());
+        Assertions.assertEquals("T80", vehicles.get(0).getModel());
+        Assertions.assertEquals(VehicleBodyType.HATCHBACK, vehicles.get(0).getBodyType());
+    }
 
     @Test
-    public void testFindAllByModelFail(){}
+    public void testFindAllByModelFail(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByModel("T90");
+
+        Assertions.assertEquals(0, vehicles.size());
+    }
 
     @Test
-    public void testFindAllByYearSuccess(){}
+    public void testFindAllByYearSuccess(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByYearOfProduction(2000);
+
+        Assertions.assertEquals(1, vehicles.size());
+        Assertions.assertEquals("test", vehicles.get(0).getManufacturer());
+        Assertions.assertEquals("T60x", vehicles.get(0).getModel());
+    }
 
     @Test
-    public void testFindAllByYearFail(){}
+    public void testFindAllByYearFail(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByYearOfProduction(2019);
+
+        Assertions.assertEquals(0, vehicles.size());
+    }
 
     @Test
-    public void testFindAllByBodyTypeSuccess(){}
+    public void testFindAllByBodyTypeSuccess(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByBodyType(VehicleBodyType.HATCHBACK);
+
+        Assertions.assertEquals(1, vehicles.size());
+        Assertions.assertEquals("test", vehicles.get(0).getManufacturer());
+        Assertions.assertEquals("T80", vehicles.get(0).getModel());
+        Assertions.assertEquals(VehicleBodyType.HATCHBACK, vehicles.get(0).getBodyType());
+    }
 
     @Test
-    public void testFindAllByBodyTypeFail(){}
+    public void testFindAllByBodyTypeFail(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByBodyType(VehicleBodyType.MICRO);
+
+        Assertions.assertEquals(0, vehicles.size());
+    }
+
+    @Test
+    public void testFindAllByFuelSuccess(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByFuel(fuel);
+
+        Assertions.assertEquals(2, vehicles.size());
+    }
+
+    @Test
+    public void testFindAllByFuelFail(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByFuel(Fuel.builder().id(30L).typeOfFuel("Gas").capacity(20.0).build());
+
+        Assertions.assertEquals(0, vehicles.size());
+    }
+
+    @Test
+    public void testFindAllByDrivingRangeSuccess(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByDrivingRange(4000);
+
+        Assertions.assertEquals(1, vehicles.size());
+        Assertions.assertEquals("test", vehicles.get(0).getManufacturer());
+        Assertions.assertEquals("T60x", vehicles.get(0).getModel());
+    }
+
+    @Test
+    public void testFindAllByDrivingRangeFail(){
+        List<HybridVehicle> vehicles = hybridVehicleRepository.findAllByDrivingRange(1000);
+
+        Assertions.assertEquals(0, vehicles.size());
+    }
 
 }

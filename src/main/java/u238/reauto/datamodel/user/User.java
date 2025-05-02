@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import u238.reauto.datamodel.advertisement.Advertisement;
+import u238.reauto.datamodel.advertisement.VehicleAdvertisement;
 
 import java.util.Collection;
 
@@ -43,5 +43,5 @@ public class User {
     private String lastName;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private Collection<Advertisement> advertisements;
+    private Collection<VehicleAdvertisement> advertisements;
 }

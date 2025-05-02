@@ -14,7 +14,7 @@ import u238.reauto.datamodel.vehicle.parts.engine.Engine;
 @Setter
 @ToString
 @Builder
-public class Advertisement {
+public class VehicleAdvertisement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

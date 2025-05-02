@@ -1,6 +1,8 @@
 package u238.reauto.datamodel.vehicle;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -20,8 +22,8 @@ public class HybridVehicle extends Vehicle<Engine> {
     @NonNull
     Integer drivingRange;
 
-    @NotNull
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="fuel_id")
     Fuel fuel;
 
 }
