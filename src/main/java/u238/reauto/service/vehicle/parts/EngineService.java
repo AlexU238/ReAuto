@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface EngineService<T extends Engine> extends Service<T,Long> {
 
-    List<T> getAllByManufacturer();
+    List<T> getAllByManufacturer(String manufacturer);
 
     List<T> getAllByLocation(String location);
 

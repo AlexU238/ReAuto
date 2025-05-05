@@ -1,0 +1,7 @@
+package u238.reauto.util.exception;
+
+public class ResourceNotFoundException extends RuntimeException {
+    public ResourceNotFoundException(String message) {
+        super(message);
+    }
+}
